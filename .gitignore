@@ -2,6 +2,9 @@
 #Ignore all
 *
 
+#Track matlab files
+*.m
+
 #Track base repo files
 !README.md
 !.gitignore
