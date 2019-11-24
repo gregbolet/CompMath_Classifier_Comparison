@@ -3,7 +3,7 @@
 *
 
 #Track matlab files
-*.m
+!*.m
 
 #Track base repo files
 !README.md
