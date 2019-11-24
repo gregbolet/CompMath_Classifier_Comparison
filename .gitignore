@@ -2,8 +2,12 @@
 #Ignore all
 *
 
+#Descend into dirs
+!*/
+
 #Track matlab files
 !*.m
+!*.mat
 
 #Track base repo files
 !README.md
