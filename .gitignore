@@ -1,0 +1,7 @@
+
+#Ignore all
+*
+
+#Track base repo files
+!README.md
+!.gitignore
