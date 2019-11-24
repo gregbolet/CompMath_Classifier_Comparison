@@ -1,1 +1,1 @@
-
+meanStruct= getMnistMeans('../datasets/mnist_all.mat');
