@@ -16,4 +16,8 @@ close all;
 %plotDigit(img2);
 
 %genInputDataFromMnist(mnistFile);
-genTextDigitDataset('Courier');
+%genTextDigitDataset('Courier');
+
+load('../datasets/mnistInputData.mat');
+mnistInputMat=inputMat;
+sampleMnistInputData(mnistInputMat);
