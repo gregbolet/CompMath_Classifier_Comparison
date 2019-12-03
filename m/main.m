@@ -12,3 +12,4 @@ plotDigit(img1);
 
 img2 = textDigitToImage(6, 'Courier');
 plotDigit(img2);
+genInputDataFromMnist('../datasets/mnist_all.mat');
