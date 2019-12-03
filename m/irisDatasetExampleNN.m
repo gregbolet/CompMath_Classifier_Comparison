@@ -29,13 +29,13 @@ net.input.processFcns = {'removeconstantrows','mapminmax'};
 % For a list of all data division functions type: help nndivision
 net.divideFcn = 'dividerand';  % Divide data randomly
 net.divideMode = 'sample';  % Divide up every sample
-net.divideParam.trainRatio = 45/100;
+net.divideParam.trainRatio = 50/100;
 net.divideParam.valRatio = 20/100;
-net.divideParam.testRatio = 35/100;
+net.divideParam.testRatio = 30/100;
 
 % Choose a Performance Function
 % For a list of all performance functions type: help nnperformance
-net.performFcn = 'crossentropy';  % Cross-Entropy
+net.performFcn = 'mse';  % Cross-Entropy
 
 % Choose Plot Functions
 % For a list of all plot functions type: help nnplot
