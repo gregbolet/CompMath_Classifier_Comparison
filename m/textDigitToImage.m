@@ -13,7 +13,7 @@ function [pixels] = textDigitToImage(num, fontName)
     text(a1,8,12,num2str(num),'fontsize',20,'fontunits','pixels','unit','pixels','fontname',fontName);
     F = getframe(f); 
     [cData, Map] = frame2im(F);
-    figure; image(cData);
+    %figure; image(cData); %Comment back in to view intermediary results
     iGray = rgb2gray(cData); %Convert the image to grayscale
     pixels = iGray(end-27:end,1:28); %Crop the digit at bottom-left of the image
     

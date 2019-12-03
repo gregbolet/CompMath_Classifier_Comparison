@@ -3,6 +3,7 @@ function []= genInputDataFromMnist(mnistfile)
 
  inputMat= zeros(784,0,'double');% Matrix containing entire data set
  targetMat= zeros(10,0,'double');% Indicator matrix containing input classifications
+ 
  % Go through mnist training and test matrices
     for i= 0:9
         %Get mean of all i digits from Mnist
@@ -32,6 +33,8 @@ function []= genInputDataFromMnist(mnistfile)
         end
 
     end
-    save('mnistInputData.mat','inputMat');
-    save('mnistTargetData.mat', 'targetMat');
+    
+    %Export both of out files to the dataset directory
+    save('../datasets/mnistInputData.mat','inputMatMNIST');
+    save('../datasets/mnistTargetData.mat', 'targetMatMNIST');
 end

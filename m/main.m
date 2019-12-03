@@ -1,4 +1,6 @@
-meanStruct= getMnistMeans('../datasets/mnist_all.mat');
+mnistFile = '../datasets/mnist_all.mat';
+
+meanStruct= getMnistMeans(mnistFile);
 close all;
 
 % for i= 0:9
@@ -7,9 +9,11 @@ close all;
 %     plotDigit(digit);
 % end
 
-img1 = textDigitToImage(3, 'Courier');
-plotDigit(img1);  
+%img1 = textDigitToImage(3, 'Courier');
+%plotDigit(img1);  
 
-img2 = textDigitToImage(6, 'Courier');
-plotDigit(img2);
-genInputDataFromMnist('../datasets/mnist_all.mat');
+%img2 = textDigitToImage(6, 'Courier');
+%plotDigit(img2);
+
+%genInputDataFromMnist(mnistFile);
+genTextDigitDataset('Courier');
