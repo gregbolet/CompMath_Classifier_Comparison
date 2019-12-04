@@ -1,8 +1,8 @@
 function []= genInputDataFromMnist(mnistfile)
  mnist= load(mnistfile);
 
- inputMat= zeros(784,0,'double');% Matrix containing entire data set
- targetMat= zeros(10,0,'double');% Indicator matrix containing input classifications
+ mnistInputMat= zeros(784,0,'double');% Matrix containing entire data set
+ mnistTargetMat= zeros(10,0,'double');% Indicator matrix containing input classifications
  
  % Go through mnist training and test matrices
     for i= 0:9
@@ -19,22 +19,19 @@ function []= genInputDataFromMnist(mnistfile)
 
             %Correct matrix orientation
             flipped= rot90(flipud(digitImage),-1);
-            
-            %Transpose for easier reshape by column
-            flipped=flipped';
-            
+                        
             %Convert image to vector(as column vector)
             imageVec=reshape(flipped,1,784)';
-            inputMat=[inputMat, imageVec];
+            mnistInputMat=[mnistInputMat, imageVec];
             
             targetVec= zeros(10,1, 'double'); %Make target column vector
             targetVec(i+1,1)= 1.0; %Set indicator for digit classification
-            targetMat= [targetMat, targetVec]; %Append columnwise to output matrix
+            mnistTargetMat= [mnistTargetMat, targetVec]; %Append columnwise to output matrix
         end
 
     end
     
     %Export both of out files to the dataset directory
-    save('../datasets/mnistInputData.mat','inputMatMNIST');
-    save('../datasets/mnistTargetData.mat', 'targetMatMNIST');
+    save('../datasets/mnistInputData.mat','mnistInputMat');
+    save('../datasets/mnistTargetData.mat', 'mnistTargetMat');
 end
