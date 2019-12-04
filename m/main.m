@@ -4,12 +4,12 @@ close all;
 
 load('../datasets/mnistInputData.mat');
 load('../datasets/mnistTargetData.mat');
-sampleInputData(mnistInputMat);
+%sampleInputData(mnistInputMat);
 mnistInputMat = double(mnistInputMat);
 
 load('../datasets/fontGenInputData.mat');
 load('../datasets/fontGenTargetData.mat');
-sampleInputData(fontGenInputMat);
+%sampleInputData(fontGenInputMat);
 fontGenInputMat = double(fontGenInputMat);
 fontGenTargetMat = double(fontGenTargetMat);
 
