@@ -21,3 +21,4 @@ close all;
 load('../datasets/mnistInputData.mat');
 mnistInputMat=inputMat;
 sampleMnistInputData(mnistInputMat);
+
