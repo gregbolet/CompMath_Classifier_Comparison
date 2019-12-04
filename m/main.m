@@ -13,7 +13,8 @@ sampleInputData(fontGenInputMat);
 fontGenInputMat = double(fontGenInputMat);
 fontGenTargetMat = double(fontGenTargetMat);
 
-
+avg = avgInputDigit(fontGenInputMat, fontGenTargetMat);
+plotDigit(reshape(avg(:,4),28,28));
 
 
 
