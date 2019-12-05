@@ -72,7 +72,7 @@ view(net)
 
 % Plots
 % Uncomment these lines to enable various plots.
-%figure, plotperform(tr)
+figure, plotperform(tr)
 %figure, plottrainstate(tr)
 %figure, ploterrhist(e)
 %Plot all the confusion matrices

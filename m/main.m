@@ -1,5 +1,3 @@
-mnistFile = '../datasets/mnist_all.mat';
-
 close all;
 
 load('../datasets/mnistInputData.mat');
@@ -14,11 +12,8 @@ load('../datasets/fontGenTargetData.mat');
 fontGenInputMat = double(fontGenInputMat);
 fontGenTargetMat = double(fontGenTargetMat);
 
-avg = avrgInputDigits(mnistInputMat, mnistTargetMat);
-plotDigit(reshape(avg(:,4),28,28));
+avrgsMnist   = avrgInputDigits(mnistInputMat,   mnistTargetMat);
+avrgsFontGen = avrgInputDigits(fontGenInputMat, fontGenTargetMat);
 
-avg = avrgInputDigits(fontGenInputMat, fontGenTargetMat);
-plotDigit(reshape(avg(:,4),28,28));
-
-
+classifiedFontGen = avrgClassifier(fontGenInputMat, avrgsMnist);
 
