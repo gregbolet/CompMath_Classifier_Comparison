@@ -7,6 +7,12 @@
 %   mnistInputMat - input data.
 %   mnistTargetMat - target data.
 
+load('../datasets/mnistInputData.mat');
+load('../datasets/mnistTargetData.mat');
+%sampleInputData(mnistInputMat);
+mnistInputMat = double(mnistInputMat);
+mnistTargetMat = double(mnistTargetMat);
+
 x = mnistInputMat;
 t = mnistTargetMat;
 
@@ -69,8 +75,16 @@ view(net)
 %figure, plotperform(tr)
 %figure, plottrainstate(tr)
 %figure, ploterrhist(e)
-%figure, plotconfusion(t,y)
+%Plot all the confusion matrices
+a = figure, plotconfusion(trainTargets, y, 'Training')
+b = figure, plotconfusion(valTargets,   y, 'Validation')
+c = figure, plotconfusion(testTargets,  y, 'Testing')
+d = figure, plotconfusion(t,            y, 'All')
 %figure, plotroc(t,y)
+set(findobj(a,'type','text'),'fontsize',8)
+set(findobj(b,'type','text'),'fontsize',8)
+set(findobj(c,'type','text'),'fontsize',8)
+set(findobj(d,'type','text'),'fontsize',8)
 
 % Deployment
 % Change the (false) values to (true) to enable the following code blocks.

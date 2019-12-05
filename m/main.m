@@ -6,6 +6,7 @@ load('../datasets/mnistInputData.mat');
 load('../datasets/mnistTargetData.mat');
 %sampleInputData(mnistInputMat);
 mnistInputMat = double(mnistInputMat);
+mnistTargetMat = double(mnistTargetMat);
 
 load('../datasets/fontGenInputData.mat');
 load('../datasets/fontGenTargetData.mat');
@@ -13,7 +14,10 @@ load('../datasets/fontGenTargetData.mat');
 fontGenInputMat = double(fontGenInputMat);
 fontGenTargetMat = double(fontGenTargetMat);
 
-avg = avgInputDigit(fontGenInputMat, fontGenTargetMat);
+avg = avrgInputDigits(mnistInputMat, mnistTargetMat);
+plotDigit(reshape(avg(:,4),28,28));
+
+avg = avrgInputDigits(fontGenInputMat, fontGenTargetMat);
 plotDigit(reshape(avg(:,4),28,28));
 
 

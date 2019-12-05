@@ -1,4 +1,4 @@
-function [avg]= avgInputDigit(inputMat,targetMat)
+function [avg]= avrgInputDigits(inputMat,targetMat)
     
     prevIdx=1; %Keep track of start of digit section
     idx=1; %Keep track of end of digit section
