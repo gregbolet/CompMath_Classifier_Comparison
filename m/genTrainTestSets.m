@@ -1,4 +1,6 @@
-function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTestSets(inputMat, targetMat, varargin)
+function [trainMat, trainMatInd, testMat, testMatInd] ... 
+         = genTrainTestSetsMixed(inputMat, targetMat, percTrain, percTest)
+     
     [numDigits, numSamples] = size(targetMat);
     [numFeats, numSamples] = size(inputMat);
     digitRanges = zeros(1,0);
@@ -29,13 +31,17 @@ function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTestSets(inputMa
         startIdx = digitRanges(1,i);
         endIdx = digitRanges(1,i+1)-1;
         diffVal = endIdx - startIdx;
-        toTrainIdxs = datasample(startIdx:endIdx, floor(diffVal*0.9), 'Replace', false);
-        toTestIdxs  = setdiff(startIdx:endIdx, toTrainIdxs);
+        numToTrain = floor(percTrain * diffVal);
+        numToTest  = floor(percTest  * diffVal);
+        
+        toTrainIdxs = datasample(startIdx:endIdx, numToTrain, 'Replace', false);
+        leftover    = setdiff(startIdx:endIdx, toTrainIdxs);
+        toTestIdxs  = datasample(leftover, numToTest, 'Replace', false);
         
         %fprintf('DiffValue: %d\n', diffVal);
         
-        numToTrain = size(toTrainIdxs, 2);
-        numToTest  = size(toTestIdxs , 2);
+        %numToTrain = size(toTrainIdxs, 2);
+        %numToTest  = size(toTestIdxs , 2);
         
         %selToTrain(i, 1:numToTrain) = toTrainIdxs;
         %selToTest (i, 1:numToTest)  = toTestIdxs;
