@@ -1,4 +1,4 @@
-function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTestSets(inputMat, targetMat)
+function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTestSets(inputMat, targetMat, varargin)
     [numDigits, numSamples] = size(targetMat);
     [numFeats, numSamples] = size(inputMat);
     digitRanges = zeros(1,0);
@@ -14,7 +14,7 @@ function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTestSets(inputMa
     end
     
     %% Find the biggest and smallest ranges of digit samples provided
-     digitRangesLen = size(digitRanges, 2);
+    digitRangesLen = size(digitRanges, 2);
     
     %% Build the training and testing datasets
     trainMat = zeros(numFeats, 0);
