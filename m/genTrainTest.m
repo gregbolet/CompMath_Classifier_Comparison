@@ -10,7 +10,7 @@ function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTest(inputMat, t
         while (idx <= numSamples) && (targetMat(i+1,idx) == 1)
             idx= idx+1; 
         end
-        digitRanges = [digitRanges, idx-1];
+        digitRanges = [digitRanges, idx];
     end
     
     %% Find the biggest and smallest ranges of digit samples provided
@@ -38,10 +38,12 @@ function [trainMat, trainMatInd, testMat, testMatInd] = genTrainTest(inputMat, t
     
     for i = 1:digitRangesLen-1
         startIdx = digitRanges(1,i);
-        endIdx = digitRanges(1,i+1);
+        endIdx = digitRanges(1,i+1)-1;
         diffVal = endIdx - startIdx;
-        toTrainIdxs = datasample(startIdx:endIdx-1, floor(diffVal*0.9), 'Replace', false);
-        toTestIdxs  = setdiff(startIdx:endIdx-1, toTrainIdxs);
+        toTrainIdxs = datasample(startIdx:endIdx, floor(diffVal*0.9), 'Replace', false);
+        toTestIdxs  = setdiff(startIdx:endIdx, toTrainIdxs);
+        
+        fprintf('DiffValue: %d\n', diffVal);
         
         numToTrain = size(toTrainIdxs, 2);
         numToTest  = size(toTestIdxs , 2);
