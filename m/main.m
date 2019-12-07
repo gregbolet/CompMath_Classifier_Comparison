@@ -1,22 +1,14 @@
 close all;
 
-load('../datasets/mnistInputData.mat');
-load('../datasets/mnistTargetData.mat');
-load('../datasets/fontGenInputData.mat');
-load('../datasets/fontGenTargetData.mat');
+load('../datasets/mnistTrainData.mat');
+load('../datasets/fontGenTrainData.mat');
 
-%sampleInputData(mnistInputMat);
-mnistInputMat = double(mnistInputMat);
-mnistTargetMat = double(mnistTargetMat);
+load('../datasets/mnistTestData.mat');
+load('../datasets/fontGenTestData.mat');
 
-%sampleInputData(fontGenInputMat);
-fontGenInputMat = double(fontGenInputMat);
-fontGenTargetMat = double(fontGenTargetMat);
+%avrgsMnist   = avrgInputDigits(mnistInputTrain,   mnistTargetTrain);
+%avrgsFontGen = avrgInputDigits(fontGenInputTrain, fontGenTargetTrain);
 
-avrgsMnist   = avrgInputDigits(mnistInputMat,   mnistTargetMat);
-avrgsFontGen = avrgInputDigits(fontGenInputMat, fontGenTargetMat);
+%classifiedMnist = avrgClassifier(mnistInputTest, avrgsMnist);
 
-classifiedFonts = avrgClassifier(fontGenInputMat, avrgsMnist);
-
-[a,b,c,d] = genTrainTest(mnistInputMat, mnistTargetMat);
 
