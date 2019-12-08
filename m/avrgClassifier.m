@@ -1,7 +1,7 @@
-function [classifications] = avrgClassifier(toClassify, classAvrgs)
+function [classDists] = avrgClassifier(toClassify, classAvrgs)
     numToTest = size(toClassify, 2);
     numClasses = size(classAvrgs, 2);
-    classifications = zeros(numClasses,0); %Make a classifications indicator matrix
+    classDists = zeros(numClasses,0); %Make a classifications distribution matrix
     
     %For each test, find the closest match, set it as the classification
     for i = 1:numToTest
@@ -13,16 +13,18 @@ function [classifications] = avrgClassifier(toClassify, classAvrgs)
             dists(j) = norm(classAvrgs(:,j)-digitToClassify); %Calculate the 'distance' in the images
         end
         
-        %Get the index with the lowest error
-        lowestErr = min(dists);
-        lowestErrIdx = find(dists==lowestErr);
-                
-        %Use that lowest error as the classification
-        indicator = zeros(numClasses,1,'double');
-        indicator(lowestErrIdx,1) = 1.0;
+        %Get the biggest distance, we will give it probability of 0
+        maxDist = max(dists);
         
-        %Append the indicator vector to the matrix
-        classifications = [classifications, indicator];
+        %Make the smallest distance the largest value
+        dists = maxDist - dists;
+        
+        %Normalize the distances with weighted sum
+        totalSum = sum(dists);
+        normDists = dists./totalSum;
+        
+        %Append distances to matrix
+        classDists = [classDists, normDists];
     end
 end
 
