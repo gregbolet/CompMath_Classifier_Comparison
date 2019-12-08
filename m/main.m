@@ -20,7 +20,7 @@ res = avrgClassifier(fontGenInputTest, avrgsFontGen);
 resConf = figure, plotconfusion(fontGenTargetTest, res, 'Testing FONTGEN');
 set(findobj(resConf,'type','text'),'fontsize',8)
 
-% myNNFnct = makeNN(mnistInputTrain, mnistTargetTrain, 28);
+% myNNFnct = makeNN(mnistInputTrain, mnistTargetTrain, 28, 'mnistTrainedNN');
 
 % res = myNNFnct(mnistInputTest);
 % resConf = figure, plotconfusion(mnistTargetTest, res, 'Testing MNIST');
