@@ -11,6 +11,6 @@ load('../datasets/fontGenTestData.mat');
 
 %classifiedMnist = avrgClassifier(mnistInputTest, avrgsMnist);
 
-plotDigit(reshape(mnistInputTest(:,4),28,28));
-
+plotDigit(reshape(mnistInputTest(:,2500),28,28));
+translateDigit(mnistInputTest(:,2500),7);
 
