@@ -5,11 +5,12 @@ function [] = runTestsForNNCl()
     load('../datasets/HWFGData.mat');
     
     tag = 'NN ';
+    hidNodes = 28;
         
     %% Make each NN and get their function pointers
-    nnHW   = makeNN(trainHW,   trainHWTargets,   28, 'hwNNFnct');
-    nnFG   = makeNN(trainFG,   trainFGTargets,   28, 'fgNNFnct');
-    nnHWFG = makeNN(trainHWFG, trainHWFGTargets, 28, 'hwfgNNFnct');
+    nnHW   = makeNN(trainHW,   trainHWTargets,   hidNodes, 'hwNNFnct');
+    nnFG   = makeNN(trainFG,   trainFGTargets,   hidNodes, 'fgNNFnct');
+    nnHWFG = makeNN(trainHWFG, trainHWFGTargets, hidNodes, 'hwfgNNFnct');
     
     %% Train: HW, Test: HW
     makeConfMatrix(nnHW, testHW, ... 
