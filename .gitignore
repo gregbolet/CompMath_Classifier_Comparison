@@ -5,6 +5,11 @@
 #Descend into dirs
 !*/
 
+#Track figures
+!*.jpg
+!*.png
+!*.fig
+
 #Track matlab files
 !*.m
 !*.mat
