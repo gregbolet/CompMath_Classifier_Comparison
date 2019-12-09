@@ -8,7 +8,13 @@ function [NNfnctHandle] = makeNN(inputMat, targetMat, hiddenLayerSize, fnctFileN
     %   fontGenInputMat - input data.
     %   fontGenTargetMat - target data.
 
-    %sampleInputData(fontGenInputMat);
+    % Check if the input function name already exists
+    % This means that the NN was already generated
+    % So let's skip making the NN
+    if isfile(strcat(fnctFileName, '.m'))
+       NNfnctHandle = str2func(fnctFileName);
+       return;
+    end
     
     x = inputMat;
     t = targetMat;
@@ -73,16 +79,16 @@ function [NNfnctHandle] = makeNN(inputMat, targetMat, hiddenLayerSize, fnctFileN
     %figure, plottrainstate(tr)
     %figure, ploterrhist(e)
     %Plot all the confusion matrices
-    a = figure, plotconfusion(trainTargets, y, 'Training')
-    b = figure, plotconfusion(valTargets,   y, 'Validation')
+    %%a = figure, plotconfusion(trainTargets, y, 'Training')
+    %%b = figure, plotconfusion(valTargets,   y, 'Validation')
     %c = figure, plotconfusion(testTargets,  y, 'Testing')
-    d = figure, plotconfusion(t,            y, 'All')
+    %%d = figure, plotconfusion(t,            y, 'All')
     
     %figure, plotroc(t,y)
-    set(findobj(a,'type','text'),'fontsize',8)
-    set(findobj(b,'type','text'),'fontsize',8)
+    %%set(findobj(a,'type','text'),'fontsize',8)
+    %%set(findobj(b,'type','text'),'fontsize',8)
     %set(findobj(c,'type','text'),'fontsize',8)
-    set(findobj(d,'type','text'),'fontsize',8)
+    %%set(findobj(d,'type','text'),'fontsize',8)
 
     %figure, plotroc(t,y)
 
