@@ -13,4 +13,5 @@ function [resConf] = makeConfMatrix(clFnct, input, targets, title, varargin)
     set(gca, 'XTickLabel', {0:9, []}) %Correct X/Y labels
     set(gca, 'YTickLabel', {0:9, []})
 
+    
 end
