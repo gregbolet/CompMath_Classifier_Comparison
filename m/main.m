@@ -1,7 +1,7 @@
 close all;
 
-runTestsForAvrgCl();
-runTestsForNNCl();
+%runTestsForAvrgCl();
+%runTestsForNNCl();
 
 
 

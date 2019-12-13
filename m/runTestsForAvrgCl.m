@@ -12,6 +12,7 @@ function [] = runTestsForAvrgCl()
     avrgsFG   = avrgInputDigits(trainFG,   trainFGTargets);
     avrgsHWFG = avrgInputDigits(trainHWFG, trainHWFGTargets);
 
+    %% Uncomment to show plots of digits
 %     plotAvrgdDigits(avrgsHW);
 %     plotAvrgdDigits(avrgsFG);
 %     plotAvrgdDigits(avrgsHWFG);
@@ -62,7 +63,7 @@ function [] = plotAvrgdDigits(avrgdDigits)
         digit = reshape(avrgdDigits(:,i),28,28);
         subplot(2,5, i);
         img= image(digit);
-        %colormap(gray(256)); %Remove the colormap to see differences
+        colormap(gray(256)); %Remove the colormap to see differences
         axis square tight on;
         set(gca, 'XTickLabel', [])
         set(gca, 'YTickLabel', [])
