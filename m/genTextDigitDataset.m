@@ -18,7 +18,5 @@ function [] = genTextDigitDataset(fontName)
     end
     
     %Export both of out files to the dataset directory
-    save('../datasets/fontGenInputData.mat','fontGenInputMat');
-    save('../datasets/fontGenTargetData.mat', 'fontGenTargetMat');
-
+    save('../datasets/fontGenData.mat','fontGenInputMat', 'fontGenTargetMat');
 end

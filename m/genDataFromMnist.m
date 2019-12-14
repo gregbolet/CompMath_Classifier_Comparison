@@ -1,4 +1,4 @@
-function []= genInputDataFromMnist(mnistfile)
+function []= genDataFromMnist(mnistfile)
  mnist= load(mnistfile);
 
  mnistInputMat= zeros(784,0,'double');% Matrix containing entire data set
@@ -32,6 +32,5 @@ function []= genInputDataFromMnist(mnistfile)
     end
     
     %Export both of out files to the dataset directory
-    save('../datasets/mnistInputData.mat','mnistInputMat');
-    save('../datasets/mnistTargetData.mat', 'mnistTargetMat');
+    save('../datasets/mnistData.mat','mnistInputMat', 'mnistTargetMat');    
 end
