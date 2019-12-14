@@ -5,8 +5,8 @@ function [NNfnctHandle] = makeNN(inputMat, targetMat, hiddenLayerSize, fnctFileN
     %
     % This script assumes these variables are defined:
     %
-    %   fontGenInputMat - input data.
-    %   fontGenTargetMat - target data.
+    %   inputMat - input data.
+    %   targetMat - target data.
 
     % Check if the input function name already exists
     % This means that the NN was already generated

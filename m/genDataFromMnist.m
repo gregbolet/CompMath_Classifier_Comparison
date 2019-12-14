@@ -33,5 +33,5 @@ function []= genDataFromMnist()
     end
     
     %Export both of out files to the dataset directory
-    save('../datasets/mnistData.mat','mnistInputMat', 'mnistTargetMat');    
+    save('../datasets/mnistData.mat', 'mnistInputMat', 'mnistTargetMat');    
 end

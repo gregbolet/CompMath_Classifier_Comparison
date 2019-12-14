@@ -8,7 +8,7 @@ function [] = genDatasets()
     load('../datasets/mnistData.mat');
     load('../datasets/fontGenData.mat');
 
-    %% Generate HW dataset
+    %% Generate HW dataset (90% training, 10% testing)
     [trainHW, trainHWTargets, testHW, testHWTargets] ... 
         = genTrainTestSets(mnistInputMat, mnistTargetMat, 0.9, 0.1);
     
@@ -16,7 +16,7 @@ function [] = genDatasets()
     save('../datasets/HWData.mat', 'trainHW', 'trainHWTargets', ...
                                    'testHW',  'testHWTargets');
     
-    %% Generate FG dataset
+    %% Generate FG dataset (90% training, 10% testing)
     [trainFG, trainFGTargets, testFG, testFGTargets] ... 
         = genTrainTestSets(fontGenInputMat, fontGenTargetMat, 0.9, 0.1);
     
@@ -24,7 +24,7 @@ function [] = genDatasets()
     save('../datasets/FGData.mat', 'trainFG', 'trainFGTargets', ...
                                    'testFG',  'testFGTargets');
     
-    %% Generate HW+FG dataset
+    %% Generate HW+FG dataset (27+63% training, 5+5% testing)
     [trainHW, trainHWTargets, testHW, testHWTargets] ... 
         = genTrainTestSets(mnistInputMat, mnistTargetMat, 0.27, 0.05);
     
