@@ -1,5 +1,6 @@
-function []= genDataFromMnist(mnistfile)
- mnist= load(mnistfile);
+function []= genDataFromMnist()
+
+ mnist= load('../datasets/mnist_all.mat');
 
  mnistInputMat= zeros(784,0,'double');% Matrix containing entire data set
  mnistTargetMat= zeros(10,0,'double');% Indicator matrix containing input classifications

@@ -31,8 +31,8 @@ function [trainMat, trainMatInd, testMat, testMatInd] ...
         startIdx = digitRanges(1,i);
         endIdx = digitRanges(1,i+1)-1;
         diffVal = endIdx - startIdx;
-        numToTrain = floor(percTrain * diffVal);
-        numToTest  = floor(percTest  * diffVal);
+        numToTrain = floor(percTrain * diffVal); %Rounding error occurs here...
+        numToTest  = floor(percTest  * diffVal); %Rounding error occurs here...
         
         toTrainIdxs = datasample(startIdx:endIdx, numToTrain, 'Replace', false);
         leftover    = setdiff(startIdx:endIdx, toTrainIdxs);

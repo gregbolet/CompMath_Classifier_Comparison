@@ -1,6 +1,10 @@
 function [] = genDatasets()
     
-    % Load our datasets
+    %% Run these if the datasets do not exist
+    % genDataFromMnist();
+    % genTextDigitDataset('Courier'); %This may take a few HOURS!
+
+    %% Load our datasets
     load('../datasets/mnistData.mat');
     load('../datasets/fontGenData.mat');
 
