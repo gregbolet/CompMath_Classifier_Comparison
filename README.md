@@ -4,6 +4,8 @@
 The following code provides the user with a few scripts to generate the datasets we used along with the code to run the tests of each classifier. We provide the datasets that we used for classification, but the user is free to overwrite them. We warn that the accuracies of each classifier may not be the same if the datasets get overwritten with different digits.
 
 ## Creating the Datasets
+_We again note that the datasets we trained and tested with are already provided in this repository, thus dataset creation will not be a necessary step to run this code._
+
 In order to create each of the datasets, we have designed it so that
 only the `genDatasets.m` script needs to be run. By default we have
 commented out the calls to generate the `mnistData.mat` and
