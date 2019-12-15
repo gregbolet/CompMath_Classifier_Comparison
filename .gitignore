@@ -5,6 +5,9 @@
 #Descend into dirs
 !*/
 
+#Leave out the final submission dir
+**/gbolet_csilva_final_submission
+
 #Track figures
 !*.jpg
 !*.png
